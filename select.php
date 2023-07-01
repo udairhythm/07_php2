@@ -44,6 +44,7 @@ if ($status==false) {
 <title>ブックマーク</title>
 <link rel="stylesheet" href="css/range.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/bookmark.css">
 <style>div{padding: 10px;font-size:16px;}</style>
 </head>
 <body id="main">

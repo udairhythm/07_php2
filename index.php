@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>データ登録</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
         div {
             padding: 10px;
@@ -14,8 +15,18 @@
 </head>
 
 <body>
+<!-- Book search form -->
+<form method="GET" action="">
+    <div>
+        <label>検索:<input type="text" name="book_search"></label>
+        <input type="submit" value="検索">
+    </div>
+</form>
+<!-- Book search form end -->
 
-    <!-- Head[Start] -->
+
+
+<!-- Head[Start] -->
     <header>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -40,17 +51,19 @@
 
     
 
-    <!-- Google Books -->
+<!-- Google Books -->
 <?php
+
+$book_search = $_GET['book_search'] ?? '';
 
 // 検索条件を配列にする
 $params = array(
-  'intitle'  => '吾輩は猫である',  //書籍タイトル
-  'inauthor' => '夏目漱石',       //著者
+  'intitle'  => $book_search,  //書籍タイトル
+  'inauthor' => '',       //著者
 );
 
 // 1ページあたりの取得件数
-$maxResults = 10;
+$maxResults = 8;
 
 // ページ番号（1ページ目の情報を取得）
 $startIndex = 0;  //欲しいページ番号-1 で設定
@@ -60,7 +73,9 @@ $base_url = 'https://www.googleapis.com/books/v1/volumes?q=';
 
 // 配列で設定した検索条件をURLに追加
 foreach ($params as $key => $value) {
-  $base_url .= $key.':'.$value.'+';
+  if (!empty($value)) {
+    $base_url .= $key.':'.$value.'+';
+  }
 }
 
 // 末尾につく「+」をいったん削除

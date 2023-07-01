@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <title>データ登録</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="css/style.css">
+
     <style>
         div {
             padding: 10px;
@@ -15,14 +16,7 @@
 </head>
 
 <body>
-<!-- Book search form -->
-<form method="GET" action="">
-    <div>
-        <label>検索:<input type="text" name="book_search"></label>
-        <input type="submit" value="検索">
-    </div>
-</form>
-<!-- Book search form end -->
+
 
 
 
@@ -30,11 +24,22 @@
     <header>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-                <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧</a></div>
+                <div class="navbar-header"><a class="navbar-brand" href="select.php">ブックマーク一覧</a></div>
             </div>
         </nav>
     </header>
     <!-- Head[End] -->
+
+
+<!-- Book search form -->
+<form method="GET" action="">
+    <div>
+        <label>本の検索:<input type="text" name="book_search"></label>
+        <input type="submit" value="検索">
+    </div>
+</form>
+<!-- Book search form end -->
+
 
     <!-- Main[Start] -->
     <form method="POST" action="insert.php">
